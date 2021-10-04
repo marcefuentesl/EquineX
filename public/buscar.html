@@ -1,0 +1,59 @@
+<!-- Desarrollo de Aplicaciones Web, MFL y VCG -->
+<!-- Página de menú búsqueda de EquineX -->
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="./estilo.css">
+    </head>
+
+    <body>
+        <!-- Enlace con funciones js -->
+        <script src="/busqueda.js"></script>
+
+        <!-- Cargar librería de íconos -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        <!-- Barra de navegación -->
+        <nav>
+            <div class="topnav">
+                <a href="./index.html"><img class="logo" src="../Img/LogoHead.png"></a>
+                <div class="topnav-right">
+                    <a class="buttonlogin" href="./login.html"><i class="fa fa-fw fa-user"></i> Login</a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Menú de selección, 2 botones para escoger jinete o caballo -->
+        <div class="containercenter">
+            <div class="titulo2">Selecciona una opción</div>
+        </div>
+            <!-- Poner un botón redondo para caballo y otro para jinete -->
+            <div class="containerrow">
+                <img class="circlecrop" src="../Img/buscarJinete.jpg" value="jinete" id="jinete" onclick="sumopt(this)">
+                <img class="circlecrop" src="../Img/buscarCaballo.jpg" value="caballo" id="caballo" onclick="sumopt(this)">
+            </div>
+            <div class="containerrow">
+                <p class="subimg">Jinetes</p>
+                <p class="subimg">Caballos</p>
+            </div>
+
+        <!-- Según la selección que aparezca el espacio correspondiente para buscar por nombre -->
+        <form action="/find" method="POST" onsubmit="submitHandle(this)">
+            <div>
+                <label for="nomjin">Nombre del jinete </label>
+                <input type="text" name="nomjin" id="nomjin" placeholder="Escribe el nombre a buscar"/>
+            </div>
+
+            <div>
+                <label for="nomcab">Nombre del caballo </label>
+                <input type="text" name="nomcab" id="nomcab" placeholder="Escribe el nombre a buscar"/>
+            </div>
+            <input type="submit" value="Enviar"/>
+        </form>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p>Copyright © 2021, Marcela Fuentes y Víctor Coeto </p>
+        </div>
+    </body>
+</html>

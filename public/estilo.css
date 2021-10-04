@@ -1,0 +1,262 @@
+/* Desarrollo de Aplicaciones Web, MFL y VCG
+Estilos para la página web */
+
+/* initialized body */
+body {
+    /* font-family: '';font-size: 22px; */
+    margin: 0;
+    font-family: "Lucida Console";
+    background-image: url("../Img/bgindex.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed; 
+    background-size: cover;
+    background-color: rgb(235, 235, 235);
+}
+/*//////////////////*/
+/* Topnav code*/
+/* Color negro a la navbar */
+.topnav {
+    background-color: black;
+    overflow: hidden;
+}
+
+/* Estilo de los links de la navbar */
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-family: Arial;
+  font-size: 17px;
+}
+
+/* Agregar color para que se vea más como un botón */
+.topnav a.buttonbuscar {
+    background-color: #00a1fe;
+    color: white;
+  }
+.topnav a.buttonlogin {
+    background-color: steelblue;
+    color: white;
+}
+/* Sección alineada a la derecha en la navbar */
+.topnav-right {
+  float: right;
+}
+
+/* Estilo del botón de logo */
+.logo {
+    display: inline-block;
+    vertical-align: top;
+    width: 20px;
+    height: 20px;
+    /*margin-right: 20px;
+    margin-left: 7px;
+    margin-top: 3px;*/
+}
+
+
+#resultado {
+    background-color: red;
+    color: white;
+    font-weight: bold;
+}
+#resultado.ok {
+    background-color: green;
+}
+
+
+/* Estilo footer */
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: lightslategray;
+    color: white;
+    text-align: center;
+    font-family: Arial;
+}
+/* //////////// */
+/* diferentes contenedores de texto */
+.container {
+    padding: 12px 20px;
+    margin: 8px ;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    color: black;
+    font-family: Arial;
+}
+.containercenter {
+    display:flex ;
+    flex-direction: column;
+    justify-content: center;
+    align-items:  center;
+    color: black;
+    font-family: Arial;
+}
+
+/* Estilos de texto */
+.texto {
+    font-family: Arial;
+    font-size: 40px;
+    font-style: normal;
+    padding-top: 100px;
+    padding-left: 20px;
+}
+
+
+
+.titulo2 {
+    font-size: 40px;
+    font-style: normal;
+    text-align: center;
+    padding-top: 100px;
+    color: white;
+}
+
+.subtitulo2 {
+    font-size: 20px;
+    text-shadow: 2px 2px black;
+    color: white;
+    font-family: Arial;
+    margin-top: 30px;
+
+
+}
+.titulo1 {
+    font-size: 130px;
+    font-family: Arial;
+    font-style: italic;
+    padding-left: 16px;
+    padding-top: 150px;
+    color: white;
+    text-shadow: 2px 2px black;
+}
+
+.subtitulo1 {
+    font-size: 30px;
+    font-family: Arial;
+    font-style: normal;
+    padding-left: 16px;
+    display: inline-flex;
+    background-color: #00a1fe;
+    color:white;
+}
+
+.subimg {
+    font-size: 30px;
+    font-family: Arial;
+    margin-top: 15px;
+    display: inline-flex;
+    color: white;
+    background-color: #00a1fe;
+    margin-left: 125px;
+    margin-right: 125px;
+}
+
+/* Estilos de botones */
+.circlecrop {
+    width: 250px;
+    height: 250px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 50%;
+    padding-top: 10px;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+.containerrow {
+    display:flex ;
+    flex-direction: row;
+    justify-content: center;
+    align-items:  center;
+    color: black;
+    font-family: Arial;
+}
+
+.redirectionbutton {
+    color: whitesmoke;
+    background-clip: padding-box;
+    border-radius: 32px;
+    background: #00a1fe;
+    display: inline-block;
+    margin-top: 24px;
+    padding: 20px 30px;
+    font-family: 'Segoe UI',Geneva;
+    text-decoration: none;
+}
+
+
+/* /////// */
+/* different forms */
+.formcentered {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.formcentered label {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.formcentered input[type=text]{
+    text-align: center;
+}
+
+form{
+    padding: 12px 20px;
+    margin: 8px;
+}
+
+label{
+    font-size: 30px;
+    text-shadow: 2px 2px black;
+    height: 20px;
+    color: white;
+    padding: 15px;
+}
+form div{
+    padding-bottom: 20px;
+}
+form input[type=submit], button{
+    color: white;
+    border-radius: 32px;
+    background: #00a1fe;
+    display: inline-block;
+    padding: 10px 20px;
+    font-family: 'Segoe UI',Geneva;
+}
+
+/* ////////// */
+/* ID styles  */
+/* hidden values of a form and next button to acces it by id*/
+#div1 {
+    display: block;
+}
+
+#div2 {
+    display: none;
+}
+
+#div3 {
+    display: none;
+}
+
+#div4 {
+    display: none;
+}
+
+/* design for the main page  */
+#mainpage{
+    display: flex;
+    flex-direction: column;
+    justify-content:space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
