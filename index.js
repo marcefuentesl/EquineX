@@ -9,7 +9,7 @@ const app = express();
 const port = 3000;
 
 const MongoClient = require('mongodb').MongoClient;
-const uri = "mongodb+srv://dbAdmin:AveryLongPassword@cluster0.vnoxe.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+const uri = "mongodb+srv://A01654203:ql8DjfgC6B03EXba@cluster0.teqbbtq.mongodb.net/?retryWrites=true&w=majority";
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 
 
