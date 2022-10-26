@@ -1,10 +1,10 @@
 var counter = 0;
 //login and register buttons
 
-const button = document.getElementById('registerButton');
-button.addEventListener('click', function(e) {
-  console.log('button was clicked');
-});
+// const button = document.getElementById('registerButton');
+// button.addEventListener('click', function(e) {
+//   console.log('button was clicked');
+// });
 
 
 function validarContenido(field) {

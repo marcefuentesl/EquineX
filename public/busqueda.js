@@ -1,5 +1,3 @@
-// Desarrollo de Aplicaciones Web, Marcela Fuentes y Víctor Coeto
-// Funciones JS para buscar
 
 function sumopt(cosa) {
     var option = cosa.value;

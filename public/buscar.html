@@ -4,6 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <link rel="stylesheet" href="./estilo.css">
+        <script type="module" src="./buttonredirect.js"></script>
     </head>
 
     <body>
@@ -29,28 +30,25 @@
         </div>
             <!-- Poner un botón redondo para caballo y otro para jinete -->
             <div class="containerrow">
-                <img class="circlecrop" src="../Img/buscarJinete.jpg" value="jinete" id="jinete" onclick="sumopt(this)">
-                <img class="circlecrop" src="../Img/buscarCaballo.jpg" value="caballo" id="caballo" onclick="sumopt(this)">
+                <img id="search_jokey" class="circlecrop" src="../Img/buscarJinete.jpg">
+                <img id="search_horse" class="circlecrop" src="../Img/buscarCaballo.jpg">
             </div>
             <div class="containerrow">
                 <p class="subimg">Jinetes</p>
                 <p class="subimg">Caballos</p>
             </div>
 
-        <!-- Según la selección que aparezca el espacio correspondiente para buscar por nombre -->
-        <form action="/find" method="POST" onsubmit="submitHandle(this)">
-            <div>
-                <label for="nomjin">Nombre del jinete </label>
-                <input type="text" name="nomjin" id="nomjin" placeholder="Escribe el nombre a buscar"/>
-            </div>
-
-            <div>
-                <label for="nomcab">Nombre del caballo </label>
-                <input type="text" name="nomcab" id="nomcab" placeholder="Escribe el nombre a buscar"/>
-            </div>
-            <input type="submit" value="Enviar"/>
-        </form>
-
+        <script>
+            // buscar
+            document.getElementById("search_jokey").onclick = function ()
+            {
+                location.href = "searchjokey.html"
+            }
+            document.getElementById("search_horse").onclick = function ()
+            {
+                location.href = "searchhorse.html"
+            }
+        </script>
         <!-- Footer -->
         <div class="footer">
             <p>Copyright © 2022, Equipo 7 </p>

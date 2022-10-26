@@ -29,21 +29,32 @@ app.get('/login', (req, res) => {
 app.post('/login', (req, res) => {
 
   client.connect(err => {
-    const collection = client.db("Equinex").collection("Users");
+    const collection = client.db("Equinex").collection("User");
     collection.findOne({ username: req.body.username}, function(err, user) {
-      console.log('User found ');
       // In case the user not found   
+      if(!user)
+      {
+        console.log("[-] Invalid user")
+        
+        return res.sendFile(__dirname + '/public/errorpage.html')
+      }
+
+      console.log('[+] User found...');
+      console.log(user)
+
       if(err) {
-        console.log('No user found');
+        console.log(err);
+        console.log("[-] Invalid user or null")
         // client.close();
         return res.sendFile(__dirname + '/public/errorpage.html');
       } 
-      if (user && user.password === req.body.password){
-        console.log('User and password is correct');
+      if (user.password === req.body.password){
+        console.log('[+] User and password are correct...');
+
         // client.close();
         return res.sendFile(__dirname + '/public/mainpage.html');
       } else {
-        console.log("Credentials wrong");
+        console.log("[-] Wrong credentials...");
         // client.close();
         return res.sendFile(__dirname + '/public/errorpage.html');
       }              
@@ -58,35 +69,35 @@ app.get('/mainpage', (req, res) => {
   // res.send(`Username: ${username} Password: ${password}`);
 
 //TODO Find by given name
-app.post('/find', function(req, res) {
+app.post('/findjockey', function(req, res) {
   client.connect(err => {
     var collection;
     var us;
+
     console.log(req.body.nomjin);
-    if(req.body.nomjin === null){
-      us = req.body.nomcab;
-      collection = client.db("Equinex").collection("Caballos");
-    }
-    else{
-      us = req.body.nomjin;
-      console.log(us);
-      collection = client.db("Equinex").collection("User");
-    }
-    collection.findOne({ username: us}, function(err, user) {
+    
+    collection = client.db("Equinex").collection("User");
+    
+    collection.findOne({ name: req.body.nomjin}, function(err, user) {
+
+      if(!user)
+      {
+        console.log("Invalid user")
+        return res.sendFile(__dirname + '/public/searchjokey.html')
+      }
       if (err) 
       {
-
         return res.sendFile("/public/errorpage.html");
       }
       if(user){
-        console.log(result);
-        res.json(result);
+
+        console.log(user.username)
 
       }
       // client.close();
-      console.log("nah");
+      // console.log("nah");
     });
-    console.log("success");
+    console.log("success...");
   });
 });
 
@@ -96,17 +107,17 @@ app.get('/register', (res) => {
 })
 app.post('/register', (req, res) => {
   client.connect(err => {
-    const collection = client.db("Equinex").collection("Users");
+    const collection = client.db("Equinex").collection("User");
     collection.insertOne(req.body, function(err, res) {
       if(err) {
-        console.log('No user found');
+        console.log('[-] User not found...');
         // client.close();
         return res.sendFile(__dirname + '/public/errorpage.html');
       } 
       console.log("1 document inserted");
       client.close();
     });
-    console.log("success");
+    console.log("success...");
   });
   return res.sendFile(__dirname + '/public/success.html');
 });
@@ -119,10 +130,10 @@ app.post('/registercaballo', (req, res) => {
     const collection = client.db("Equinex").collection("Caballos");
     collection.insertOne(req.body, function(err, res) {
       if (err) throw err;
-      console.log("1 document inserted");
+      console.log("[+] Horse registered...");
       // client.close();
     });
-    console.log("success");
+    console.log("success...");
   });
   res.sendFile(__dirname + '/public/mainpage.html');
 });
@@ -137,12 +148,25 @@ app.post('/deletecaballo', (req, res) => {
         // client.close();
         return res.sendFile(__dirname + '/public/errorpage.html');
       } 
-      console.log("1 document inserted");
+      console.log("[+] Horse register deleted...");
       // client.close();
     });
-    console.log("success");
+    console.log("success...");
   });
   res.sendFile(__dirname + '/public/mainpage.html');
+});
+
+app.get('/searchjockey', (req, res) =>
+{
+  res.sendFile(__dirname + '/public/searchjokey.html')
+});
+app.get('/searchhorse', (req, res) =>
+{
+  res.sendFile(__dirname + '/public/searchhorse.html')
+});
+app.get('/updatecaballo', (req,res) =>
+{
+  res.sendFile(__dirname + '/public/updatecaballo.html')
 });
 
 // update value of a horse 
@@ -155,10 +179,10 @@ app.post('/updatecaballo', (req, res) => {
         // client.close();
         res.sendFile(__dirname + '/public/errorpage.html');
       } 
-      console.log("1 document inserted");
+      console.log("[+] Horse information updated...");
       // client.close();
     });
-    console.log("success");
+    console.log("success...");
   });
   res.sendFile(__dirname + '/public/mainpage.html');
 });
