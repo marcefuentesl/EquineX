@@ -1,4 +1,3 @@
-<!-- Desarrollo de Aplicaciones Web, MFL y VCG -->
 <!-- Página de eliminar caballo  de EquineX -->
 <html>
     <head>
@@ -31,10 +30,23 @@
                     <input type="text" name="horseID" id="horseID" placeholder="Escribe el ID"/>
                 </div>
 
-                <input type="submit" value="Enviar"/>
+                <input type="submit" value="Enviar" onclick="geekConfirm()"/>
             </form>
             <a class="redirectionbutton" href="mainpage.html">Regresar</a>
         </div>
+
+        <script>
+            function geekConfirm() {
+                var x;
+                if (confirm("Caballo Eliminado con exito") == true) {
+                    x = "OK pressed!";
+                } else {
+                    x = "Cancel!";
+                }
+                document.getElementById("geek").innerHTML = x;
+            }
+        </script>
+        
         
 
         <!-- Footer -->

@@ -31,6 +31,9 @@ app.post('/login', (req, res) => {
   client.connect(err => {
     const collection = client.db("Equinex").collection("User");
     collection.findOne({ username: req.body.username}, function(err, user) {
+      
+      //document.getElementById(saludo).user
+
       // In case the user not found   
       if(!user)
       {
@@ -131,6 +134,7 @@ app.post('/registercaballo', (req, res) => {
     collection.insertOne(req.body, function(err, res) {
       if (err) throw err;
       console.log("[+] Horse registered...");
+      
       // client.close();
     });
     console.log("success...");

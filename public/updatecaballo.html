@@ -35,11 +35,24 @@
                     <input type="text" name="name" id="name" placeholder="Escribe el nombre nuevo"/>
                 </div>
 
-                <input type="submit" value="Enviar"/>
+                <input type="submit" value="Enviar" onclick="geekConfirm()"/>
             </form>
+            
             <a class="redirectionbutton" href="mainpage.html">Regresar</a>
+
         </div>
-        
+                <!-- Confirm box function -->
+                <script>
+                    function geekConfirm() {
+                        var x;
+                        if (confirm("Caballo Actualizado con exito") == true) {
+                            x = "OK pressed!";
+                        } else {
+                            x = "Cancel!";
+                        }
+                        document.getElementById("geek").innerHTML = x;
+                    }
+                </script>
 
         <!-- Footer -->
         <div class="footer">

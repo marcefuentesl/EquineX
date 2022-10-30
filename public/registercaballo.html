@@ -68,12 +68,29 @@
                     <label for="password">Nacionalidad </label>
                     <input type="text" name="Nacionalidad" id="Nacionalidad" onblur="validarContenido(this)"placeholder="Escribe su Nacionalidad"/>
                 </div>
-                <input type="submit" value="Enviar"/>
+                <input type="submit" value="Enviar" onclick="geekConfirm()"/>
+                <p id="geek"></p>
+         
             </div>
         </form>
         <div class="container">
             <a class="redirectionbutton" href="mainpage.html">Regresa</a>
         </div>
+
+ 
+        <!-- Confirm box function -->
+        <script>
+            function geekConfirm() {
+                var x;
+                if (confirm("Caballo Registrado con exito") == true) {
+                    x = "OK pressed!";
+                } else {
+                    x = "Cancel!";
+                }
+                document.getElementById("geek").innerHTML = x;
+            }
+        </script>
+</body>
         
         
         <!-- Footer -->
