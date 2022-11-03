@@ -101,6 +101,36 @@ app.post('/findjockey', function(req, res) {
   });
 });
 
+
+app.post('/findhorsey', function(req, res) {
+  client.connect(err => {
+    var collection;
+    var us;
+
+    console.log (":(")
+    console.log(req.body.nomhor);
+    collection = client.db("Equinex").collection("Caballos");
+    collection.findOne({ name: req.body.nomhor}, function(err, user) {
+
+      if(user == null) {
+        console.log("Invalid user :(")
+        return res.sendFile(__dirname + '/public/searchhorse.html')
+      }
+
+      if (err) {
+        return res.sendFile("/public/errorpage.html");
+      }
+
+      if(user){
+        console.log(user.name)
+        console.log("success...");
+      }
+      // client.close();
+      // console.log("nah");
+    });
+  });
+});
+
 //register directions
 app.get('/register', (res) => {
   res.sendFile(__dirname + '/public/register.html');

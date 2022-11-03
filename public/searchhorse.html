@@ -21,10 +21,14 @@
         </nav>
 
 
-        <div>
-            <p> search horse</p>
-        </div>
-        
+        <!-- Según la selección que aparezca el espacio correspondiente para buscar por nombre -->
+        <form action="/findhorsey" method="POST" onsubmit="submitHandle(this)">
+            <div>
+                <label for="nomhor">Nombre del caballo: </label>
+                <input type="text" name="nomhor" id="nomhor" placeholder="Nombre del caballo"/>
+            </div>
+            <input type="submit" value="Buscar"/>
+        </form> 
 
         <!-- Footer -->
         <div class="footer">
