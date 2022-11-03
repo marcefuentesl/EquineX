@@ -77,30 +77,27 @@ app.post('/findjockey', function(req, res) {
     var collection;
     var us;
 
+    console.log (":(")
     console.log(req.body.nomjin);
-    
     collection = client.db("Equinex").collection("User");
-    
-    collection.findOne({ name: req.body.nomjin}, function(err, user) {
+    collection.findOne({ username: req.body.nomjin}, function(err, user) {
 
-      if(!user)
-      {
-        console.log("Invalid user")
+      if(user == null) {
+        console.log("Invalid user :(")
         return res.sendFile(__dirname + '/public/searchjokey.html')
       }
-      if (err) 
-      {
+
+      if (err) {
         return res.sendFile("/public/errorpage.html");
       }
+
       if(user){
-
         console.log(user.username)
-
+        console.log("success...");
       }
       // client.close();
       // console.log("nah");
     });
-    console.log("success...");
   });
 });
 
