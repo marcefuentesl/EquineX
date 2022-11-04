@@ -3,6 +3,7 @@ const bodyParser= require('body-parser');
 const express = require('express');
 const path = require('path');
 
+const sjocker = require("./public/searchjocker")
 
 const app = express();
 const port = 3000;
@@ -16,6 +17,13 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(__dirname + '/public'));
 app.use(express.static(__dirname + '/Img'));
 
+function hello(user)
+{
+  elem = user
+  console.log("From hello")
+  console.log(elem)
+  module.exports = {elem}
+}
 
 app.get('/', (req, res) => {
   res.sendFile(__dirname + '/public/index.html');
@@ -92,7 +100,9 @@ app.post('/findjockey', function(req, res) {
       }
 
       if(user){
-        console.log(user.username)
+        // console.log(user.username)
+        // hello(user)
+        sjocker.printsmth(user)
         console.log("success...");
       }
       // client.close();
