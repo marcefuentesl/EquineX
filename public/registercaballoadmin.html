@@ -1,0 +1,101 @@
+<!-- Desarrollo de Aplicaciones Web, MFL y VCG -->
+<!-- Página de register de EquineX -->
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="./estilo.css">
+    </head>
+
+    <body>
+        <script src="login&register.js"></script>
+        <!-- Cargar librería de íconos -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        <!-- Navigation Bar -->
+        <nav>
+            <div class="topnav">
+                <a href="./index.html"><img class="logo" src="../Img/LogoHead.png"></a>
+                <div class="topnav-right">
+                    <a class="buttonbuscar" href="./buscar.html"><i class="fa fa-fw fa-search"></i> Buscar</a>
+                </div>
+            </div>
+        </nav>
+
+
+        <!-- Form para registro -->
+        <div class="containercenter">
+            <div class="titulo1">Registro para Caballos</div>
+        </div>
+        <form action="/registercaballoadmin" method = "POST">
+            <div id = "div1">
+                <div>
+                    <label for="horseID">Numero ID del caballo </label>
+                    <input type="horseID" name="horseID" id="horseID" onblur="validarContenido(this)"placeholder="Escribe el ID de tu caballo"/>
+                </div>
+                <div>
+                    <label for="name">Nombre </label>
+                    <input type="text" name="name" id="name" onblur="validarContenido(this)"placeholder="Escribe su nombre"/>
+                </div>
+                
+                <button type="button" onclick="dividedForm()">Next </button>
+            </div>
+
+            <div id="div2">
+                <div>
+                    <label for="birthdate">Fecha de nacimiento</label>
+                    <input type="date" name="birthdate" id="birthdate" onblur="validarContenido(this)" value="2021-06-07" min="1990-01-01" min="2021-12-12"/>
+                </div>
+                <button type="button" onclick="dividedForm()">Next </button>
+            </div>
+            <div id="div3">
+                <div>
+                    <label for="gender">Sexo </label>
+                    <select name="gender" id="gender">
+                        <optgroup>
+                          <option value="Masculino">Masculino</option>
+                          <option value="Femenino">Femenino</option>
+                        </optgroup>
+                      </select>
+                </div>
+                <div>
+                    <label for="">Color </label>
+                    <input type="text" name="clubname" id="clubname" onblur="validarContenido(this)"placeholder="Escribe su color"/>
+                </div>
+                <button type="button" onclick="dividedForm()">Next </button>
+            </div>
+            <div id="div4">
+                <div>
+                    <label for="password">Nacionalidad </label>
+                    <input type="text" name="Nacionalidad" id="Nacionalidad" onblur="validarContenido(this)"placeholder="Escribe su Nacionalidad"/>
+                </div>
+                <input type="submit" value="Enviar" onclick="geekConfirm()"/>
+                <p id="geek"></p>
+         
+            </div>
+        </form>
+        <div class="container">
+            <a class="redirectionbutton" href="mainpage.html">Regresa</a>
+        </div>
+
+ 
+        <!-- Confirm box function -->
+        <script>
+            function geekConfirm() {
+                var x;
+                if (confirm("Caballo Registrado con exito") == true) {
+                    x = "OK pressed!";
+                } else {
+                    x = "Cancel!";
+                }
+                document.getElementById("geek").innerHTML = x;
+            }
+        </script>
+</body>
+        
+        
+        <!-- Footer -->
+        <div class="footer">
+            <p>Copyright © 2022, Equipo 7 </p>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,63 @@
+<!-- Desarrollo de Aplicaciones Web, MFL y VCG -->
+<!-- Página de eliminar caballo  de EquineX -->
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="./estilo.css">
+    </head>
+
+    <body>
+        <!-- Cargar librería de íconos -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        <!-- Navigation Bar -->
+        <nav>
+            <div class="topnav">
+                <a href="./index.html"><img class="logo" src="../Img/LogoHead.png"></a>
+                <div class="topnav-right">
+                    <a class="buttonlogin" href="./login.html"><i class="fa fa-fw fa-user"></i> Login</a>
+                    <a class="buttonbuscar" href="./buscar.html"><i class="fa fa-fw fa-search"></i> Buscar</a>
+                </div>
+            </div>
+        </nav>
+
+
+        <!--Page that updates the name of the horse-->
+        <div class="containercenter">
+            <a class="titulo2">Inserte el USERNAME del jockey que quiera cambiar nombre y el nombre nuevo</a>
+            <form class="formcentered" action="/updatejockeyadmin" method = "POST">
+                <div class="formcentered">
+                    <label for="username">USERNAME de jockey editar</label>
+                    <input type="text" name="username" id="username" placeholder="Escribe el USERNAME"/>
+                </div>
+                <div class="formcentered">
+                    <label for="name">Nombre nuevo</label>
+                    <input type="text" name="name" id="name" placeholder="Escribe el nombre nuevo"/>
+                </div>
+
+                <input type="submit" value="Enviar" onclick="geekConfirm()"/>
+                <p id="geek"></p>
+            </form>
+            
+            <a class="redirectionbutton" href="mainpageadmin.html">Regresar</a>
+
+        </div>
+                <!-- Confirm box function -->
+                <script>
+                    function geekConfirm() {
+                        var x;
+                        if (confirm("Jockey Actualizado con exito") == true) {
+                            x = "OK pressed!";
+                        } else {
+                            x = "Cancel!";
+                        }
+                        document.getElementById("geek").innerHTML = x;
+                    }
+                </script>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p>Copyright © 2022, Equipo 7 </p>
+        </div>
+    </body>
+</html>

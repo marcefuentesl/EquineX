@@ -1,0 +1,58 @@
+<!-- Página de eliminar caballo  de EquineX -->
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="./estilo.css">
+    </head>
+
+    <body>
+        <!-- Cargar librería de íconos -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        <!-- Navigation Bar -->
+        <nav>
+            <div class="topnav">
+                <a href="./index.html"><img class="logo" src="../Img/LogoHead.png"></a>
+                <div class="topnav-right">
+                    <a class="buttonlogin" href="./login.html"><i class="fa fa-fw fa-user"></i> Login</a>
+                    <a class="buttonbuscar" href="./buscar.html"><i class="fa fa-fw fa-search"></i> Buscar</a>
+                </div>
+            </div>
+        </nav>
+
+
+        <!--Page that tells if an error in mongo happened-->
+        <div class="containercenter">
+            <a class="titulo2">Inserte el USERNAME del jockey que quiera dar de baja</a>
+            <form class="formcentered" action="/deletejockey" method = "POST">
+                <div class="formcentered">
+                    <label for="username">Username de jockey a eliminar</label>
+                    <input type="text" name="username" id="username" placeholder="Escribe el username"/>
+                </div>
+
+                <input type="submit" value="Enviar" onclick="geekConfirm()"/>
+                <p id="geek"></p>
+            </form>
+            <a class="redirectionbutton" href="mainpageadmin.html">Regresar</a>
+        </div>
+
+        <script>
+            function geekConfirm() {
+                var x;
+                if (confirm("Jockey Eliminado con exito") == true) {
+                    x = "OK pressed!";
+                } else {
+                    x = "Cancel!";
+                }
+                document.getElementById("geek").innerHTML = x;
+            }
+        </script>
+        
+        
+
+        <!-- Footer -->
+        <div class="footer">
+            <p>Copyright © 2022, Equipo 7  </p>
+        </div>
+    </body>
+</html>

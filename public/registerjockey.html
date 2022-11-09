@@ -1,0 +1,92 @@
+<!-- Página de register de EquineX -->
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="./estilo.css">
+    </head>
+
+    <body>
+        <script src="login&register.js"></script>
+        <!-- Cargar librería de íconos -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        <!-- Navigation Bar -->
+        <nav>
+            <div class="topnav">
+                <a href="./index.html"><img class="logo" src="../Img/LogoHead.png"></a>
+                <div class="topnav-right">
+                    <a class="buttonbuscar" href="./buscar.html"><i class="fa fa-fw fa-search"></i> Buscar</a>
+                </div>
+            </div>
+        </nav>
+
+
+        <!-- Form para registro -->
+        <div class="containercenter">
+            <div class="titulo1">Registro para Jockeys</div>
+        </div>
+        <form action="/registeradmin" method = "POST" onsubmit="submitHandle(this)">
+            <div id = "div1">
+                <div>
+                    <label for="username">Usuario </label>
+                    <input type="text" name="username" id="username" onblur="validarContenido(this)"placeholder="Escribe tu nombre de usuario"/>
+                </div>
+                
+                <div>
+                    <label for="password">Contraseña </label>
+                    <input type="password" name="password" id="password" onblur="validarContenido(this)"placeholder="Escribe tu contraseña"/>
+                </div>
+                <button type="button" onclick="dividedForm()">Next </button>
+            </div>
+
+            <div id="div2">
+                <div>
+                    <label for="name">Nombre </label>
+                    <input type="text" name="name" id="name" onblur="validarContenido(this)"placeholder="Escribe tu Nombre"/>
+                </div>
+                <div>
+                    <label for="lastname">Apellido </label>
+                    <input type="text" name="lastname" id="lastname" onblur="validarContenido(this)"placeholder="Escribe tu Apellido "/>
+                </div>
+                <div>
+                    <label for="birthdate">Fecha de nacimiento</label>
+                    <input type="date" name="birthdate" id="birthdate" onblur="validarContenido(this)" value="2021-06-07" min="1990-01-01" min="2021-12-12"/>
+                </div>
+                <button type="button" onclick="dividedForm()">Next </button>
+            </div>
+            <div id="div3">
+                <div>
+                    <label for="gender">sexo </label>
+                    <select name="gender" id="gender">
+                        <optgroup label="sexo">
+                          <option value="Masculino">Masculino</option>
+                          <option value="Femenino">Femenino</option>
+                        </optgroup>
+                      </select>
+                </div>
+                <div>
+                    <label for="CURP">CURP </label>
+                    <input type="text" name="CURP" id="CURP" onblur="validarCURP(this)"placeholder="Escribe tu CURP"/>
+                </div>
+                <button type="button" onclick="dividedForm()">Next </button>
+            </div>
+            <div id="div4">
+                <div>
+                    <label for="clubname">nombre de club </label>
+                    <input type="text" name="clubname" id="clubname" onblur="validarContenido(this)"placeholder="Escribe el nombre del club"/>
+                </div>
+                <div>
+                    <label for="nacionality">Nacionalidad </label>
+                    <input type="text" name="nacionality" id="nacionality" onblur="validarContenido(this)"placeholder="Escribe tu nacionalidad"/>
+                </div>
+                <input type="submit" value="Enviar"/>
+            </div>
+        </form>
+        
+        
+        <!-- Footer -->
+        <div class="footer">
+            <p>Copyright © 2022, Equipo 7</p>
+        </div>
+    </body>
+</html>

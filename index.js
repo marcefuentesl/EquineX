@@ -3,7 +3,7 @@ const bodyParser= require('body-parser');
 const express = require('express');
 const path = require('path');
 
-const sjocker = require("./public/searchjocker")
+// const sjocker = require("./public/")
 
 const app = express();
 const port = 3000;
@@ -60,10 +60,18 @@ app.post('/login', (req, res) => {
         return res.sendFile(__dirname + '/public/errorpage.html');
       } 
       if (user.password === req.body.password){
-        console.log('[+] User and password are correct...');
+        if (user.username === "super@admin" && user.password === "admin")
+        {
+          console.log('[+] Admin detected - all hail the super user'); 
+          return res.sendFile(__dirname + '/public/mainpageadmin.html')
+        }
+        else
+        {
+          console.log('[+] User and password are correct...');
 
-        // client.close();
-        return res.sendFile(__dirname + '/public/mainpage.html');
+          // client.close();
+          return res.sendFile(__dirname + '/public/mainpage.html');
+        }
       } else {
         console.log("[-] Wrong credentials...");
         // client.close();
@@ -73,6 +81,25 @@ app.post('/login', (req, res) => {
   });
 });
 
+// admin page
+app.get('/mainpageadmin', (req, res) => {
+  res.sendFile(__dirname + '/public/mainpageadmin.html');
+});
+
+app.get('/registerjockey', (req, res) => 
+{
+  res.sendFile(__dirname + '/public/registerjockey.html'); 
+});
+
+app.get('/deletejockey', (req, res) => 
+{
+  res.sendFile(__dirname + '/public/deletejockey.html');
+});
+
+app.get('/updatejockey', (req, res) =>
+{
+  res.sendFile(__dirname + '/public/updatejockey.html');
+});
 
 app.get('/mainpage', (req, res) => {
   res.sendFile(__dirname + '/public/mainpage.html');
@@ -155,16 +182,52 @@ app.post('/register', (req, res) => {
         return res.sendFile(__dirname + '/public/errorpage.html');
       } 
       console.log("1 document inserted");
-      client.close();
+      // client.close();
     });
     console.log("success...");
   });
   return res.sendFile(__dirname + '/public/success.html');
 });
+app.post('/registeradmin', (req, res) => {
+  client.connect(err => {
+    const collection = client.db("Equinex").collection("User");
+    collection.insertOne(req.body, function(err, res) {
+      if(err) {
+        console.log('[-] User not found...');
+        // client.close();
+        return res.sendFile(__dirname + '/public/errorpage.html');
+      } 
+      console.log("1 document inserted");
+      // client.close();
+    });
+    console.log("success...");
+  });
+  return res.sendFile(__dirname + '/public/successadmin.html');
+});
 //register caballos to specific collections
 app.get('/registercaballo', (res) => {
   res.sendFile(__dirname + '/public/registercaballo.html');
 })
+
+app.get('/registercaballoadmin.html', (req,res) =>
+{
+  res.sendFile(__dirname + '/public/registercaballoadmin.html');
+});
+
+app.post('/registercaballoadmin', (req, res) => {
+  client.connect(err => {
+    const collection = client.db("Equinex").collection("Caballos");
+    collection.insertOne(req.body, function(err, res) {
+      if (err) throw err;
+      console.log("[+] Horse registered...");
+      
+      // client.close();
+    });
+    console.log("success...");
+  });
+  res.sendFile(__dirname + '/public/mainpageadmin.html');
+});
+
 app.post('/registercaballo', (req, res) => {
   client.connect(err => {
     const collection = client.db("Equinex").collection("Caballos");
@@ -177,6 +240,40 @@ app.post('/registercaballo', (req, res) => {
     console.log("success...");
   });
   res.sendFile(__dirname + '/public/mainpage.html');
+});
+
+app.post('/deletejockey', (req, res) => {
+  // var myquery = { address: 'Mountain 21' };
+  client.connect(err => {
+    const collection = client.db("Equinex").collection("User");
+    collection.deleteOne(req.body, function(err, res) {
+      if(err) {
+        // client.close();
+        return res.sendFile(__dirname + '/public/errorpage.html');
+      } 
+      console.log("[+] Jockey deleted...");
+      // client.close();
+    });
+    console.log("success...");
+  });
+  res.sendFile(__dirname + '/public/mainpageadmin.html');
+});
+
+app.post('/deletecaballoadmin', (req, res) => {
+  // var myquery = { address: 'Mountain 21' };
+  client.connect(err => {
+    const collection = client.db("Equinex").collection("Caballos");
+    collection.deleteOne(req.body, function(err, res) {
+      if(err) {
+        // client.close();
+        return res.sendFile(__dirname + '/public/errorpage.html');
+      } 
+      console.log("[+] Horse register deleted...");
+      // client.close();
+    });
+    console.log("success...");
+  });
+  res.sendFile(__dirname + '/public/mainpageadmin.html');
 });
 
 //delete caballo from collection
@@ -226,6 +323,42 @@ app.post('/updatecaballo', (req, res) => {
     console.log("success...");
   });
   res.sendFile(__dirname + '/public/mainpage.html');
+});
+
+// update value of a horse 
+app.post('/updatecaballoadmin', (req, res) => {
+  // var myquery = { address: 'Mountain 21' };
+  client.connect(err => {
+    const collection = client.db("Equinex").collection("Caballos");
+    collection.updateOne({ horseID: req.body.horseID}, { $set: {name: req.body.name} },function(err, res) {
+      if(err) {
+        // client.close();
+        res.sendFile(__dirname + '/public/errorpage.html');
+      } 
+      console.log("[+] Horse information updated...");
+      // client.close();
+    });
+    console.log("success...");
+  });
+  res.sendFile(__dirname + '/public/mainpageadmin.html');
+});
+
+// update value of a horse 
+app.post('/updatejockeyadmin', (req, res) => {
+  // var myquery = { address: 'Mountain 21' };
+  client.connect(err => {
+    const collection = client.db("Equinex").collection("User");
+    collection.updateOne({ username: req.body.username}, { $set: {name: req.body.name} },function(err, res) {
+      if(err) {
+        // client.close();
+        res.sendFile(__dirname + '/public/errorpage.html');
+      } 
+      console.log("[+] Horse information updated...");
+      // client.close();
+    });
+    console.log("success...");
+  });
+  res.sendFile(__dirname + '/public/mainpageadmin.html');
 });
 
 
