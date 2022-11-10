@@ -1,5 +1,5 @@
-# Proyecto Final de Desarrollo de Aplicaciones Web
-_Marcela Fuentes (A01748161) y Víctor Coeto (A01654866)_
+# Proyecto Integrador
+_Marcela Fuentes (A01748161), René García (A01654359), y Jorge Palacios (A01654203)_
 
 ![logo](,/../public/Img/LogoEquineX.png)
 
