@@ -119,7 +119,7 @@ app.post('/findjockey', function(req, res) {
 
       if(user == null) {
         console.log("Invalid user :(")
-        return res.sendFile(__dirname + '/public/searchjokey.html')
+        return res.sendFile(__dirname + '/public/noFoundH.html')
       }
 
       if (err) {
@@ -129,8 +129,9 @@ app.post('/findjockey', function(req, res) {
       if(user){
         // console.log(user.username)
         // hello(user)
-        sjocker.printsmth(user)
+        console.log(user)
         console.log("success...");
+        return res.sendFile(__dirname + '/public/foundJ.html')
       }
       // client.close();
       // console.log("nah");
@@ -151,14 +152,15 @@ app.post('/findhorsey', function(req, res) {
 
       if(user == null) {
         console.log("Invalid user :(")
-        return res.sendFile(__dirname + '/public/searchhorse.html')
+        return res.sendFile(__dirname + '/public/noFoundH.html')
       }
 
       if (err) {
-        return res.sendFile("/public/errorpage.html");
+        return res.sendFile("/public/noFoundH.html");
       }
 
       if(user){
+        return res.sendFile(__dirname + '/public/foundhorse.html');
         console.log(user.name)
         console.log("success...");
       }
