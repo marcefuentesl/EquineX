@@ -1,0 +1,56 @@
+<!-- Página de menú búsqueda de EquineX -->
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="./estilo.css">
+        <script type="module" src="./buttonredirect.js"></script>
+    </head>
+
+    <body>
+        <!-- Enlace con funciones js -->
+        <script src="/busqueda.js"></script>
+
+        <!-- Cargar librería de íconos -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        <!-- Barra de navegación -->
+        <nav>
+            <div class="topnav">
+                <a href="./index.html"><img class="logo" src="../Img/LogoHead.png"></a>
+                <div class="topnav-right">
+                    <a class="buttonlogin" href="./login.html"><i class="fa fa-fw fa-user"></i> Login</a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Menú de selección, 2 botones para escoger jinete o caballo -->
+        <div class="containercenter">
+            <div class="titulo2">Selecciona una opción</div>
+        </div>
+            <!-- Poner un botón redondo para caballo y otro para jinete -->
+            <div class="containerrow">
+                <img id="search_jokey" class="circlecrop" src="../Img/buscarJinete.jpg">
+                <img id="search_horse" class="circlecrop" src="../Img/buscarCaballo.jpg">
+            </div>
+            <div class="containerrow">
+                <p class="subimg">Jinetes</p>
+                <p class="subimg">Caballos</p>
+            </div>
+
+        <script>
+            // buscar
+            document.getElementById("search_jokey").onclick = function ()
+            {
+                location.href = "searchjokeyadmin.html"
+            }
+            document.getElementById("search_horse").onclick = function ()
+            {
+                location.href = "searchhorseadmin.html"
+            }
+        </script>
+        <!-- Footer -->
+        <div class="footer">
+            <p>Copyright © 2022, Equipo 7 </p>
+        </div>
+    </body>
+</html>

@@ -15,7 +15,7 @@ document.getElementById("edit_horse_info").onclick = function ()
 
 document.getElementById("search_smth").onclick = function ()
 {
-    location.href = "buscar.html"
+    location.href = "buscaradmin.html"
 }
 
 // nuevos

@@ -139,6 +139,39 @@ app.post('/findjockey', function(req, res) {
   });
 });
 
+//TODO Find by given name
+app.post('/findjockeyadmin', function(req, res) {
+  client.connect(err => {
+    var collection;
+    var us;
+
+    console.log (":(")
+    console.log(req.body.nomjin);
+    collection = client.db("Equinex").collection("User");
+    collection.findOne({ username: req.body.nomjin}, function(err, user) {
+
+      if(user == null) {
+        console.log("Invalid user :(")
+        return res.sendFile(__dirname + '/public/noFoundH.html')
+      }
+
+      if (err) {
+        return res.sendFile("/public/errorpage.html");
+      }
+
+      if(user){
+        // console.log(user.username)
+        // hello(user)
+        console.log(user)
+        console.log("success...");
+        return res.sendFile(__dirname + '/public/foundJadmin.html')
+      }
+      // client.close();
+      // console.log("nah");
+    });
+  });
+});
+
 
 app.post('/findhorsey', function(req, res) {
   client.connect(err => {
@@ -169,7 +202,35 @@ app.post('/findhorsey', function(req, res) {
     });
   });
 });
+app.post('/findhorseyadmin', function(req, res) {
+  client.connect(err => {
+    var collection;
+    var us;
 
+    console.log (":(")
+    console.log(req.body.nomhor);
+    collection = client.db("Equinex").collection("Caballos");
+    collection.findOne({ name: req.body.nomhor}, function(err, user) {
+
+      if(user == null) {
+        console.log("Invalid user :(")
+        return res.sendFile(__dirname + '/public/noFoundH.html')
+      }
+
+      if (err) {
+        return res.sendFile("/public/noFoundH.html");
+      }
+
+      if(user){
+        return res.sendFile(__dirname + '/public/foundhorseadmin.html');
+        console.log(user.name)
+        console.log("success...");
+      }
+      // client.close();
+      // console.log("nah");
+    });
+  });
+});
 //register directions
 app.get('/register', (res) => {
   res.sendFile(__dirname + '/public/register.html');

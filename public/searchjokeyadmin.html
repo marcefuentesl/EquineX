@@ -1,0 +1,41 @@
+
+<!-- Página de login de EquineX -->
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="./estilo.css">
+        <script src="./searchjocker.js"></script>
+    </head>
+
+    <body>
+        <!-- Cargar librería de íconos -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        <!-- Navigation Bar -->
+        <nav>
+            <div class="topnav">
+                <a href="./index.html"><img class="logo" src="../Img/LogoHead.png"></a>
+                <div class="topnav-right">
+                    <a class="buttonlogin" href="./login.html"><i class="fa fa-fw fa-user"></i> Login</a>
+                    <a class="buttonbuscar" href="./buscar.html"><i class="fa fa-fw fa-search"></i> Buscar</a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Según la selección que aparezca el espacio correspondiente para buscar por nombre -->
+        <form action="/findjockeyadmin" method="POST" onsubmit="submitHandle(this)">
+            <div>
+                <label for="nomjin">Nombre del jinete: </label>
+                <input type="text" name="nomjin" id="nomjin" placeholder="Usuario"/>
+            </div>
+            <input id="buscar" type="submit" value="Buscar"/>
+        </form> 
+        
+        <p id="testing"></p>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p>Copyright © 2022, Equipo 7</p>
+        </div>
+    </body>
+</html>
